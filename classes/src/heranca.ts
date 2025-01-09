@@ -52,7 +52,7 @@ class Admin extends Usuario {
 
 const user1 = new Admin(8, "Yan", "teste@teste.com", "Programador", 1)
 
-// user1.id;
+// user1.id; nao é possivel acessar esse atributo
 
 
 user1.acessarAdmin();
