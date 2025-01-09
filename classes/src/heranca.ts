@@ -3,9 +3,13 @@
     ClassePAI tem seus atributos e a classeFILHA vai herdar todos os atributos do pai alem dos seus proprios atributos.
 */
 
+/*
+    4 MODIFICADORES: Public, Private, Protected, readonly
+*/
+
 class Usuario {
-    nome: string;
-    email: string;
+    public nome: string;
+    public email: string;
 
     constructor(nome: string, email: string) {
         this.nome = nome;
@@ -14,8 +18,8 @@ class Usuario {
 }
 
 class Admin extends Usuario {
-    cargo: string;
-    nivel: number;
+    public cargo: string;
+    public nivel: number;
 
     constructor(nome: string, email: string, cargo: string, nivel: number) {
         // Chamando o construtor da classe pai
@@ -24,8 +28,16 @@ class Admin extends Usuario {
         this.cargo = cargo;
         this.nivel = nivel
     }
+
+    public mudarCargo(): void {
+        console.log("Alterando cargo")
+    }
 }
 
 const user1 = new Admin("Yan", "teste@teste.com", "Programador", 1)
 
-console.log(user1);
+user1.cargo = "Pintor"
+
+user1.mudarCargo();
+
+console.log(user1)
