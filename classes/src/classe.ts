@@ -4,6 +4,8 @@
     >> Ou seja, conjunto de atributos e metodos.
 */
 
+type Status = "ABERTO" | "FECHADO";
+
 class Loja {
     //Atributos da nossa classe.
     nome: string;
@@ -20,10 +22,18 @@ class Loja {
 
     emitirPedido(mesa: number, ...pedidos: string[]): string {
         pedidos.map((pedido) => {
-            console.log(`Saind novo pedido: ${pedido}`)
+            console.log(`Saindo novo pedido: ${pedido}`)
         })
 
         return `Pedido na mesa: ${mesa}`
+    }
+
+    mudarStatus(status: Status): void {
+        if(status === "ABERTO") {
+            console.log("LOJA ABERTA!");
+        } else {
+            console.log("LOJA FECHADA!");
+        }
     }
 }
 
@@ -32,5 +42,7 @@ const redBurguer = new Loja("Red Burguer", "Hamburgueria");
 redBurguer.criarLoja(); 
 
 const retornoLoja = redBurguer.emitirPedido(8, "X-Burguer", "Batata Frita", "Combo programador feliz");
+
+redBurguer.mudarStatus("FECHADO");
 
 console.log(retornoLoja);
