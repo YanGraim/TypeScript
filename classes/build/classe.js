@@ -9,8 +9,17 @@ class Loja {
         this.nome = nome;
         this.categoria = categoria;
     }
+    criarLoja() {
+        console.log(`Loja ${this.nome}, categoria: ${this.categoria}`);
+    }
+    emitirPedido(mesa, ...pedidos) {
+        pedidos.map((pedido) => {
+            console.log(`Saind novo pedido: ${pedido}`);
+        });
+        return `Pedido na mesa: ${mesa}`;
+    }
 }
 const redBurguer = new Loja("Red Burguer", "Hamburgueria");
-const sucos = new Loja("Sucao gelado", "Sucos");
-console.log(redBurguer.nome);
-console.log(sucos.nome);
+redBurguer.criarLoja();
+const retornoLoja = redBurguer.emitirPedido(8, "X-Burguer", "Batata Frita", "Combo programador feliz");
+console.log(retornoLoja);
