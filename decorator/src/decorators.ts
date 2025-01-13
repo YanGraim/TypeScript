@@ -18,7 +18,7 @@
 
 function logInfo(message: string) {
     return (target: any) => {
-        console.log(`${message}, ${target}`)
+        // console.log(`${message}, ${target}`)
     }
 }
 
@@ -26,3 +26,21 @@ function logInfo(message: string) {
 class Sistema {
 
 }
+
+// ============ Praticando ============
+
+function setIpServidor(novoIp: string) {
+    return (target: any) => { // target é o construtor da nossa classe
+        return class extends target {
+            ip = novoIp;
+        }
+    }
+}
+
+@setIpServidor("192.168.40.50")
+class Servidor {
+}
+
+const server1 = new Servidor();
+
+console.log(server1)

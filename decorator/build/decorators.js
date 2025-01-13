@@ -22,7 +22,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // >>> Padrao factory (Fabrica) | Função que vai retornar a criação do decorator.
 function logInfo(message) {
     return (target) => {
-        console.log(`${message}, ${target}`);
+        // console.log(`${message}, ${target}`)
     };
 }
 let Sistema = class Sistema {
@@ -30,3 +30,21 @@ let Sistema = class Sistema {
 Sistema = __decorate([
     logInfo("Sevidor está rodando!")
 ], Sistema);
+// ============ Praticando ============
+function setIpServidor(novoIp) {
+    return (target) => {
+        return class extends target {
+            constructor() {
+                super(...arguments);
+                this.ip = novoIp;
+            }
+        };
+    };
+}
+let Servidor = class Servidor {
+};
+Servidor = __decorate([
+    setIpServidor("192.168.40.50")
+], Servidor);
+const server1 = new Servidor();
+console.log(server1);
